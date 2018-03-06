@@ -1,0 +1,13 @@
+// Mensajes
+
+// Registro exitoso
+\Session::flash('flash_messages', "Se han realizado exitosamente todas las operaciones solictadas.");
+
+// Cantidades Maximas y minimas permitadas
+\Session::flash('flash_errors', "La cantidad de registros ha superado el limite permitido. Intentelo nuevamente.");
+
+// Mensaje Registros Encontrados
+\Session::flash('flash_errors', "Ya existen registros relacionados con los datos previamente cargados. Intentelo nuevamente.");
+
+// Mensaje Registros No Encontrados
+\Session::flash('flash_errors', "No existen registros relacionados con los datos previamente cargados. Intentelo nuevamente.");
