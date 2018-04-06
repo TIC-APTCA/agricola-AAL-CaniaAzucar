@@ -19,9 +19,12 @@
 		
 		<form method="post" action="" class="form-horizontal">
 		
-		<input type="hidden" name="asignacion" id="asignacion" placeholder="ASIGNACION" value=""/>
-		<input type="hidden" name="deduccion"  id="deduccion"  placeholder="DEDUCCION"  value=""/>
-		<input type="hidden" name="columna"    id="columna"    placeholder="COLUMNA" 	value=""/>
+		<input type="hidden" name="asignacion_test" id="asignacion_test" placeholder="ASIGNACION_test" value="{{$correlativo->asignacion}}"/>
+		<input type="hidden" name="deduccion_test"  id="deduccion_test"  placeholder="DEDUCCION_test"  value="{{$correlativo->deduccion}}"/>
+		
+		
+		<input type="hidden" name="asignacion" id="asignacion" placeholder="ASIGNACION" value="{{$correlativo->asignacion}}"/>
+		<input type="hidden" name="deduccion"  id="deduccion"  placeholder="DEDUCCION"  value="{{$correlativo->deduccion}}"/>
 		
 
 		<div class="row" >
@@ -45,7 +48,7 @@
 		<div class="row" >
 			<label class="col-sm-2 control-label text-right">(*) Frecuencia:</label>
 			<div class="col-sm-2">
-				<select class="form-control" name="frecuencias_id" id="frecuencias_id" >
+				<select class="form-control" name="frecuencias_id" id="frecuencias_id">
 			     <option value="0">Seleccione</option>
      			     <option value="1">Fijo</option>
      			     <option value="2">Variable</option>

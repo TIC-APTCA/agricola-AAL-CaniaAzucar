@@ -27,6 +27,4 @@ class CorrelativoRepo extends Model
 		return $this->arreglo;
 	}
 	
-	   
-	
 }

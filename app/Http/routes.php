@@ -151,6 +151,14 @@ Route::get('/liquidacion/conceptos/actualizar/{id}', 'Liquidacion\Conceptos\Conc
 Route::post('/liquidacion/conceptos/actualizar/{id}', 'Liquidacion\Conceptos\ConceptosController@update');
 Route::get('/liquidacion/conceptos/eliminar/{id}', 'Liquidacion\Conceptos\ConceptosController@destroy');
 
+
+// Ruta del controlador Liquidaciones/Preliminar
+###############################################################################
+Route::get('/liquidacion/preliminar', 'Liquidacion\Preliminar\PreliminarController@show');
+
+
+
+
 // Ruta del controlador Liquidaciones/Anticipos Semanales
 ###############################################################################
 Route::get('/liquidacion/anticipos', 'Liquidacion\AnticipoSem\AnticipoSemController@show');

@@ -4,6 +4,10 @@ function codigo_creador() {
 		var tipo=$('#tipos_id').val();
     	var asignacion=parseInt($('#asignacion').val());
     	var deduccion=parseInt($('#deduccion').val());
+    	
+    	var asignacion_test=parseInt($('#asignacion_test').val());
+    	var deduccion_test=parseInt($('#deduccion_test').val());
+    	
     	var codigo='';
     	
    
@@ -11,9 +15,14 @@ function codigo_creador() {
     	if(tipo=="1")
 	    	{
     		   $('#columna').val('asignacion');
+    		   $('#asignacion').val(asignacion+1);
     		   
-    		   $('#asignacion').val(asignacion-1);
-    	    		
+    		   
+    		   if(deduccion!=deduccion_test){
+    			   $('#deduccion').val(deduccion-1);  
+    		   }
+    		   
+      	    		
 		    	if(asignacion<=9)
 		    	{
 		    		codigo='01-0'+(asignacion+1);
@@ -27,6 +36,11 @@ function codigo_creador() {
     	if(tipo=='2')
     		{
     		$('#columna').val('deduccion');
+    		$('#deduccion').val(deduccion+1);
+    		
+    		if(asignacion!=asignacion_test){
+ 			   $('#asignacion').val(asignacion-1);  
+ 		   }
     		
     			if(deduccion<=9)
     			{

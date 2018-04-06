@@ -33,6 +33,7 @@ class AnticipoSemRepo extends Model
 		->orWhere('anticipos_semanales.semana','like','%'.$datos->multicampo.'%')
 		->orWhere('anticipos_semanales.fecha_inicial','like','%'.$datos->multicampo.'%')
 		->orWhere('anticipos_semanales.fecha_final','like','%'.$datos->multicampo.'%')
+		->orWhere('anticipos_semanales.factor','like','%'.$datos->multicampo.'%')
 				->orderBy('anticipos_semanales.id','ASC')
 				->paginate(9);
 	

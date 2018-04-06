@@ -66,20 +66,7 @@ class ConceptosController extends Controller
      */
     public function store(Request $request)
     {
-    	
-    	  $tipo=$request->input('tipos_id');
-    	  $id='1';
-	
-    	if($tipo=='2'){
-    		$columna='deduccion';
-    		$valor=$request->get('asignacion');
-    	}
-    	else if($tipo=='1'){
-    		$columna='asignacion';
-    		$valor=$request->get('deduccion');
-    	}
-    	
-    	
+    	    	
         // Reglas basicas de validacion
     	$rules = array(
     			'tipos_id'				 	    =>	'required',
@@ -99,10 +86,21 @@ class ConceptosController extends Controller
    		$conceptos ->create($request->all());
    
    		
-   		$correlativo = CorrelativoRepo::find($id);
-   		$correlativo->asignacion = $request->input('asignacion');
-   		$correlativo->deduccion  = $request->input('deduccion');
-   		$correlativo->save();
+   		//$correlativo = new CorrelativoRepo();
+   		//$correlativos->asignacion = $request->input('asignacion');
+   		//$correlativos->deduccion  = $request->input('deduccion');
+   		//$correlativo->create($request->input('asignacion'),$request->input('deduccion'));
+   		
+   		$correlativo=Correlativo::where('id', '=', "1")->first();
+   		
+   		// Si existe
+   		if(count($correlativo)>=1){
+   			// Seteamos un nuevo titulo
+   			$correlativo->asignacion = $request->input('asignacion');
+   			$correlativo->deduccion  = $request->input('deduccion');
+   			// Guardamos en base de datos
+   			$correlativo->save();
+   		}
    		
 
    		   	 

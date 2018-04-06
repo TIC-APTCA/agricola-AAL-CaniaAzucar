@@ -137,12 +137,12 @@
                             <a href="#"><i class="fa fa-gear nav_icon"></i>Liquidaciones<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="{{ asset('/liquidacion/conceptos')}}">Conceptos de Liq.</a></li>
-                                <li><a href="#">Preliminar de Ca&ntilde;a</a></li>
+                                <li><a href="{{ asset('/liquidacion/preliminar')}}">Preliminar de Ca&ntilde;a</a></li>
                                 <li><a href="#">Anticipos Semanales</a>
                                 	<ul class="nav nav-third-level">
                                 		<li><a href="{{ asset('/liquidacion/anticipos')}}">Definiciones</a></li>
-                                		<li><a href="#">Calculo</a></li>
                                 		<li><a href="#">Productor/Concepto</a></li>
+                                		<li><a href="#">Calculo</a></li>
                                 		<li><a href="#">Verificar</a></li>
                                 		<li><a href="#">Reportes</a></li>
                                 	</ul>

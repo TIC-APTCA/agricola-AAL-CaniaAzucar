@@ -43,15 +43,18 @@
 					<label class="col-sm-2 control-label text-right">(*) Porcentaje:</label>
 					<div class="col-sm-2">
 						<select id="porcentaje_lista" name="porcentaje_lista" class="form-control" onchange="cambiar_porcentaje();">
-							<option value="60" >60%</option>
+							<option value="{{ $anticipos->porcentaje}}" >{{ $anticipos->porcentaje}} %</option>
+							<option value="60" >60.00 %</option>
 							<option value="0" >Otro</option>
 						</select>
 					</div>
+					
 					
 					<label class="col-sm-1 control-label text-right">Otro:</label>
 					<div class="col-sm-2">
 						<input onkeyup="copy();" disabled="disabled" type="text" id="porcentaje_otro" name="porcentaje_otro" class="form-control" value="" />
 					</div>
+					
 				</div>
 				
 				<div class="row" >
