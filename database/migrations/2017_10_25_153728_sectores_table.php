@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Sectores extends Migration
+class SectoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Sectores extends Migration
     public function up()
     {
         Schema::create('sectores', function (Blueprint $table) {
-            $table->increments('codigo_sector');
-        	$table->integer('codigo_hacienda');
+            $table->increments('id');
+        	$table->integer('haciendas_id')->unsigned();
+        	$table->foreign('haciendas_id')->references('id')->on('haciendas');
         	$table->string('descripcion');
-            $table->rememberToken();
             
             $table->timestamps();
         });

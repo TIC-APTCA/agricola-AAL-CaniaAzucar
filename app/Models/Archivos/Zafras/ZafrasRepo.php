@@ -19,14 +19,14 @@ class ZafrasRepo extends Model
 	public function busquedaMulticampo($datos){
 	
 		if (empty($datos->multicampo)) {
-			$resultados =ZafrasRepo::select('zafras.*')
+			$resultados = ZafrasRepo::select('zafras.*')
 			->orderBy('zafras.id','ASC')
 			->paginate(9);
 	
 			return $resultados;
 		}
 	
-		$resultados =ZafrasRepo::select('zafras.*')
+		$resultados = ZafrasRepo::select('zafras.*')
 		->orWhere('zafras.codigo','like','%'.$datos->multicampo.'%')
 		->orWhere('zafras.descripcion','like','%'.$datos->multicampo.'%')
 		->orWhere('zafras.observaciones','like','%'.$datos->multicampo.'%')
@@ -39,7 +39,7 @@ class ZafrasRepo extends Model
 	// Buscar 
 	public function busquedaxCodigo($codigo) {
 	
-		$resultados =ZafrasRepo::select('zafras.*')
+		$resultados = ZafrasRepo::select('zafras.*')
 		->Where('zafras.codigo','=', $codigo)
 		->get();
 	
@@ -48,6 +48,23 @@ class ZafrasRepo extends Model
 		}
 	
 		return $this->arreglo;
+	}
+	
+	public function generarCodigoxZafra() {
+	
+		if (ZafrasRepo::all()->count() == 0) {
+			return 'Z' . str_pad(1, 3, 0, STR_PAD_LEFT) .'-'. date('Y');
+		}
+	
+		return 'Z' . str_pad($this->getZafrasxAnio()->count() + 1, 3, 0, STR_PAD_LEFT) .'-'.date('Y');
+	}
+	
+	public function getZafrasxAnio() {
+		$resultados = ZafrasRepo::select('zafras.*')
+		->whereRaw('YEAR(zafras.fecha_inicial) = '. date("Y"))
+		->get();
+		
+		return $resultados;
 	}
 	
 	

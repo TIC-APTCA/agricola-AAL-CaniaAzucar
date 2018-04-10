@@ -14,23 +14,19 @@ class ZafrasController extends Controller
  protected $auth;
  protected $zafrasRepo;
  
- public function __construct() {
- 	
- 	
+ public function __construct() 
+ {
  	// Verificar la autenticacion del usuario
  	$this->middleware('auth');
  
- 	// Repositorio de Busquedas - ConductoresRepo
+ 	// Repositorio de Busquedas - ZafrasRepo
  	$this->zafrasRepo = new ZafrasRepo();
  }
  
 	
     public function index()
     {
-      		
-		//redirigir vista al home
-		return view('/archivos/zafras/home');
-	
+		//
     }
 
     /**
@@ -40,8 +36,11 @@ class ZafrasController extends Controller
      */
     public function create()
     {
-        //redirigir vista al home
-		return view('/archivos/zafras/registrar', compact('zafras'));
+    	// Generar Codigo de Zafra
+    	$codigo_zafra = $this->zafrasRepo->generarCodigoxZafra();
+    	
+        // redirigir vista al home
+		return view('/archivos/zafras/registrar', compact('codigo_zafra'));
     }
 
     /**
@@ -77,7 +76,7 @@ class ZafrasController extends Controller
    		\Session::flash('flash_messages', "Se han realizado exitosamente todas las operaciones solicitadas.");
     	
     	// Retornar la vista 
-    		return redirect("/zafras");
+    	return redirect("/zafras");
     }
 
     /**
